@@ -14,7 +14,6 @@ function Home() {
     <div>
       <section className="highlights">
         <div className="welcome">
-          <h2>Community Highlights:</h2>
           <div className="welcome-content">
             <div className="welcome-text">
               <h3>Welcome to LoLProClub</h3>
