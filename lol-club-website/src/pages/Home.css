@@ -1,33 +1,83 @@
-.home-container {
-    font-family: Arial, sans-serif;
+.highlights {
+    background-color: #ffffe0;
+    padding: 20px;
+    text-align: left;
   }
   
-  .nav-link {
-    padding: 0.5rem 1rem;
+  .welcome h2, .welcome h3 {
+    margin: 0;
   }
   
-  .highlight-section {
-    background-color: #f0ad4e;
+  .welcome-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   
-  .featured-section {
-    background-color: #f7f7f7;
+  .welcome-text {
+    flex: 1;
+    margin-right: 20px;
   }
   
-  .featured-section .card {
-    background-color: #5bc0de;
+  .welcome-text p {
+    margin: 10px 0;
+  }
+  
+  .welcome-text button {
+    padding: 10px 20px;
+    margin-top: 10px;
+  }
+  
+  .welcome-image {
+    flex: 1;
+  }
+  
+  .welcome-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .featured, .community {
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  
+  .featured h2, .community h2 {
+    margin: 0 0 20px;
+  }
+  
+  .news {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .news-item {
+    background-color: #add8e6;
+    padding: 10px;
+    width: 45%;
+    text-align: center;
+  }
+  
+  .news-image {
+    background-color: #d3d3d3;
+    width: 84px;
+    height: 92px;
+    margin: 0 auto 10px;
+  }
+  
+  footer {
+    background-color: #000080;
+    color: white;
+    padding: 20px;
+  }
+  
+  footer p, footer a {
+    margin: 0;
     color: white;
   }
   
-  .community-highlights {
-    background-color: #d9edf7;
-  }
-  
-  .footer {
-    background-color: #003366;
-  }
-  
-  .footer p {
-    margin: 0;
+  footer a:hover {
+    text-decoration: underline;
   }
   
