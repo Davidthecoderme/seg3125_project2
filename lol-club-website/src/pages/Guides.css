@@ -1,0 +1,29 @@
+.guide-categories {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .guide-categories h2 {
+    margin-top: 0;
+  }
+  
+  .guide-content {
+    background-color: #d3d3d3;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .guide-content h2 {
+    margin-top: 0;
+  }
+  
+  .guide-content .video-link {
+    display: block;
+    background-color: #add8e6;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  

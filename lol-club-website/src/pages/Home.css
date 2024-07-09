@@ -1,0 +1,33 @@
+.home-container {
+    font-family: Arial, sans-serif;
+  }
+  
+  .nav-link {
+    padding: 0.5rem 1rem;
+  }
+  
+  .highlight-section {
+    background-color: #f0ad4e;
+  }
+  
+  .featured-section {
+    background-color: #f7f7f7;
+  }
+  
+  .featured-section .card {
+    background-color: #5bc0de;
+    color: white;
+  }
+  
+  .community-highlights {
+    background-color: #d9edf7;
+  }
+  
+  .footer {
+    background-color: #003366;
+  }
+  
+  .footer p {
+    margin: 0;
+  }
+  
