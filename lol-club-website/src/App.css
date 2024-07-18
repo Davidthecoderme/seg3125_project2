@@ -1,3 +1,7 @@
+
+
+/* Add this CSS to your existing App.css file */
+
 .App {
   text-align: center;
 }
@@ -48,3 +52,49 @@ footer p, footer a {
 footer a:hover {
   text-decoration: underline;
 }
+
+.welcome-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  height: 100vh;
+  background-image: url('./photos/background.png'); /* Add your background image here */
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 20px;
+  color: white; /* Change text color to be readable against the background */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add text shadow for better readability */
+}
+
+.welcome-message h2 {
+  font-size: 2.5em;
+  margin-bottom: 50px;
+}
+
+.welcome-message button {
+  background-color: #1d72b8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.welcome-message button:hover {
+  background-color: #155a8a;
+}
+
+.welcome-message img {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+
+
+
+
