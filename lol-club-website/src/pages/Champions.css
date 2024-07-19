@@ -3,6 +3,7 @@
 .champions-page {
     padding: 20px;
     text-align: center;
+    background-color: azure;
   }
   
   .filters {
@@ -33,6 +34,12 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* Ensure 4 champions per row */
     gap: 20px;
+    justify-content: center;
+    color: #110808;
+  }
+
+  .champions-list p{
+    color: #110808;
     justify-content: center;
   }
   
