@@ -1,0 +1,70 @@
+/* Add this CSS to your existing Champions.css file */
+
+.champions-page {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    padding: 10px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .role-select {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .champions-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Ensure 4 champions per row */
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .champion-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden; /* Ensure content stays within the card */
+    padding: 0; /* Remove inner padding */
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .champion-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .champion-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .champion-details {
+    padding: 10px; /* Add padding for the text part */
+  }
+  
+  .champion-details h3 {
+    margin: 10px 0 5px;
+  }
+  
+  .champion-details p {
+    margin: 5px 0;
+  }
+  
