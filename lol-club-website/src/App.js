@@ -37,7 +37,11 @@ function App() {
               <Link to="/guides">Guides</Link>
               <Link to="/community">Community Page</Link>
               <Link to="/join">Join Us</Link>
-            </nav>
+              </nav>
+              <div className="language-toggle">
+              <button>English</button>
+              <button>Français</button>
+            </div>
           </header>
           <Routes>
             <Route path="/" element={<Home />} />
