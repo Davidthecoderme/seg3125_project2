@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Community.css';
+import translations from '../language';
 
 const quizQuestions = [
   {
@@ -27,7 +28,8 @@ const leaderboardData = [
   { name: 'ShadowHunter', points: 80 },
 ];
 
-function Community() {
+function Community({ language }) {
+  const lan = translations[language];
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
   const [showResults, setShowResults] = useState(false);
@@ -69,30 +71,27 @@ function Community() {
 
   return (
     <div className="community-page">
-      <h2 className="page-title">Community Page</h2>
-
-      
+      <h2 className="page-title">{lan['community.pageTitle']}</h2>
 
       <section className="champion-spotlight">
-        <h3>Champion Spotlight</h3>
-        <p>This week: Ahri - The Nine-Tailed Fox</p>
-        <a href="https://www.mobafire.com/league-of-legends/champion/ahri-89" target="_blank" rel="noopener noreferrer">Ahri Guide</a>
+        <h3>{lan['community.championSpotlight']}</h3>
+        <p>{lan['community.thisWeekAhri']}</p>
+        <a href="https://www.mobafire.com/league-of-legends/champion/ahri-89" target="_blank" rel="noopener noreferrer">{lan['community.ahriGuide']}</a>
       </section>
 
       <section className="community-tournaments">
-        <h3>Community Tournaments</h3>
-        <p>Join our upcoming tournaments and compete for glory!</p>
-        <a href="https://battlefy.com/" target="_blank" rel="noopener noreferrer">Register Here</a>
+        <h3>{lan['community.communityTournaments']}</h3>
+        <p>{lan['community.joinTournaments']}</p>
+        <a href="https://battlefy.com/" target="_blank" rel="noopener noreferrer">{lan['community.registerHere']}</a>
       </section>
 
       <section className="player-of-the-month">
-        <h3>Player of the Month</h3>
-        <p>Congratulations to [Player Name] for outstanding contributions!</p>
+        <h3>{lan['community.playerOfTheMonth']}</h3>
+        <p>{lan['community.congratsPlayer']}</p>
       </section>
 
-
       <section>
-        <h3>Event Calendar</h3>
+        <h3>{lan['community.eventCalendar']}</h3>
         <div className="event-calendar">
           <iframe 
             src="https://calendar.google.com/calendar/embed?src=davidjun556%40gmail.com&ctz=America%2FToronto"
@@ -103,11 +102,9 @@ function Community() {
         </div>
       </section>
 
-      
-
       <section className="leaderboard">
-        <h3>Leaderboard</h3>
-        <p>See who’s on top of the community challenges.</p>
+        <h3>{lan['community.leaderboard']}</h3>
+        <p>{lan['community.topCommunity']}</p>
         <ul>
           {leaderboardData.map((player, index) => (
             <li key={index}>
@@ -117,26 +114,22 @@ function Community() {
         </ul>
       </section>
 
-      
-
       <section className="patch-notes-highlights">
-        <h3>Patch Notes Highlights</h3>
-        <p>Catch up on the latest patch updates and community reactions.</p>
-        <a href="https://na.leagueoflegends.com/en-us/news/game-updates/" target="_blank" rel="noopener noreferrer">Patch Notes</a>
+        <h3>{lan['community.patchNotesHighlights']}</h3>
+        <p>{lan['community.latestPatchUpdates']}</p>
+        <a href="https://na.leagueoflegends.com/en-us/news/game-updates/" target="_blank" rel="noopener noreferrer">{lan['community.patchNotes']}</a>
       </section>
 
       <section className="streamer-spotlight">
-        <h3>Streamer Spotlight</h3>
-        <p>Check out this week's featured streamers.</p>
-        <a href="https://www.twitch.tv/directory/game/League%20of%20Legends" target="_blank" rel="noopener noreferrer">Twitch</a>
+        <h3>{lan['community.streamerSpotlight']}</h3>
+        <p>{lan['community.featuredStreamers']}</p>
+        <a href="https://www.twitch.tv/directory/game/League%20of%20Legends" target="_blank" rel="noopener noreferrer">{lan['community.twitch']}</a>
       </section>
 
-     
-
       <section className="weekly-challenges">
-        <h3>Weekly Challenges</h3>
-        <p>Complete weekly challenges and earn rewards.</p>
-        <button onClick={handleStartQuiz}>Start Quiz</button>
+        <h3>{lan['community.weeklyChallenges']}</h3>
+        <p>{lan['community.completeChallenges']}</p>
+        <button onClick={handleStartQuiz}>{lan['community.startQuiz']}</button>
         {showQuiz && (
           <div className="quiz-modal">
             <div className="quiz-content">
@@ -156,26 +149,26 @@ function Community() {
               ) : (
                 <>
                   <div className="quiz-results">
-                    <h4>Your Results</h4>
+                    <h4>{lan['community.yourResults']}</h4>
                     <p>
                       You got {userAnswers.filter((answer, index) => answer === quizQuestions[index].answer).length} out of {quizQuestions.length} correct.
                     </p>
                     {userAnswers.filter((answer, index) => answer === quizQuestions[index].answer).length === quizQuestions.length ? (
                       <>
-                        <p>Congratulations! Enter your email to receive a gift card:</p>
+                        <p>{lan['community.congratulations']}</p>
                         <input
                           type="email"
                           value={email}
                           onChange={handleEmailChange}
-                          placeholder="Enter your email"
+                          placeholder={lan['community.enterEmail']}
                         />
-                        <button onClick={handleSubmitEmail}>Submit</button>
+                        <button onClick={handleSubmitEmail}>{lan['community.submit']}</button>
                       </>
                     ) : (
-                      <p>Good luck next time!</p>
+                      <p>{lan['community.goodLuckNextTime']}</p>
                     )}
                   </div>
-                  <button onClick={handleRetakeQuiz}>Retake Quiz</button>
+                  <button onClick={handleRetakeQuiz}>{lan['community.retakeQuiz']}</button>
                 </>
               )}
             </div>

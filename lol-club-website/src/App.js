@@ -6,7 +6,9 @@ import Guides from './pages/Guides';
 import Community from './pages/Community';
 import JoinUs from './pages/JoinUs';
 import Logo from './photos/logo.png';
+import translations from './language';
 import './App.css';
+import Button from './context/Button';
 
 function App() {
   const [showWelcome, setShowWelcome] = useState(true);
@@ -16,6 +18,14 @@ function App() {
     setShowWelcome(false);
     navigate('/');
   };
+
+  const [language, setLanguage] = useState('en');
+
+  const toggleLanguage = (lang) => {
+    setLanguage(lang);
+  };
+
+  const lan = translations[language];
 
   return (
     <div className="App">
@@ -32,23 +42,23 @@ function App() {
               <h1>LoLProClub</h1>
             </div>
             <nav>
-              <Link to="/">Home</Link>
-              <Link to="/champions">Champions</Link>
-              <Link to="/guides">Guides</Link>
-              <Link to="/community">Community Page</Link>
-              <Link to="/join">Join Us</Link>
-              </nav>
-              <div className="language-toggle">
-              <button>English</button>
-              <button>Français</button>
+              <Link to="/">{lan.home}</Link>
+              <Link to="/champions">{lan.champions}</Link>
+              <Link to="/guides">{lan.guides}</Link>
+              <Link to="/community">{lan.community}</Link>
+              <Link to="/join">{lan.joinUs}</Link>
+            </nav>
+            <div className="language-toggle">
+              <Button lang='en' toggleLanguage={toggleLanguage}>English</Button>
+              <Button lang='fr' toggleLanguage={toggleLanguage}>Français</Button>
             </div>
           </header>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/champions" element={<Champions />} />
-            <Route path="/guides" element={<Guides />} />
-            <Route path="/community" element={<Community />} />
-            <Route path="/join" element={<JoinUs />} />
+            <Route path="/" element={<Home language={language} />} />
+            <Route path="/champions" element={<Champions language={language} />} />
+            <Route path="/guides" element={<Guides language={language} />} />
+            <Route path="/community" element={<Community language={language} />} />
+            <Route path="/join" element={<JoinUs language={language} />} />
           </Routes>
           <footer>
             <p>follow us: LoLProClub@instagram.com</p>

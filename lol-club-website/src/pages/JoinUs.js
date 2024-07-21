@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './JoinUs.css';
+import translations from '../language';
 
-function JoinUs() {
+function JoinUs({ language }) {
+  const lan = translations[language];
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,11 +33,11 @@ function JoinUs() {
 
   useEffect(() => {
     if (isCreatingClub) {
-      document.title = `Step ${currentStep} - Create Your Club`;
+      document.title = `${lan['joinUs.step']} ${currentStep} - ${lan['joinUs.createClub']}`;
     } else {
-      document.title = 'Join Us';
+      document.title = lan['joinUs.pageTitle'];
     }
-  }, [isCreatingClub, currentStep]);
+  }, [isCreatingClub, currentStep, lan]);
 
   const handleChange = (event) => {
     const { name, value, checked } = event.target;
@@ -62,7 +65,7 @@ function JoinUs() {
   };
 
   const handleFinalSubmit = () => {
-    alert('Form submitted successfully!');
+    alert(lan['joinUs.submit']);
     setFormData({ name: '', email: '', message: '', rank: '', frequency: '' });
     setIsSubmitted(false);
   };
@@ -70,7 +73,7 @@ function JoinUs() {
   const handleClubSubmit = (event) => {
     event.preventDefault();
     if (currentStep === 3) {
-      alert('Club created successfully!');
+      alert(lan['joinUs.createClubBtn']);
       setClubData({
         clubName: '',
         roles: {
@@ -91,22 +94,20 @@ function JoinUs() {
     }
   };
 
-  
-
   const startCreatingClub = () => {
     setIsCreatingClub(true);
   };
 
   return (
     <div className="join-us-page">
-      <h2>Join Us Page</h2>
-      <p>Information on how to join goes here...</p>
+      <h2>{lan['joinUs.pageTitle']}</h2>
+      <p>{lan['joinUs.joinInstructions']}</p>
       {!isCreatingClub ? (
         <>
           {!isSubmitted ? (
             <form className="join-us-form" onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlFor="name">Name:</label>
+                <label htmlFor="name">{lan['joinUs.name']}</label>
                 <input
                   type="text"
                   id="name"
@@ -117,7 +118,7 @@ function JoinUs() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="email">Email:</label>
+                <label htmlFor="email">{lan['joinUs.email']}</label>
                 <input
                   type="email"
                   id="email"
@@ -128,7 +129,7 @@ function JoinUs() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="rank">Current Rank:</label>
+                <label htmlFor="rank">{lan['joinUs.rank']}</label>
                 <select
                   id="rank"
                   name="rank"
@@ -136,7 +137,7 @@ function JoinUs() {
                   onChange={handleChange}
                   required
                 >
-                  <option value="">Select your rank</option>
+                  <option value="">{lan['joinUs.selectRank']}</option>
                   <option value="Iron">Iron</option>
                   <option value="Bronze">Bronze</option>
                   <option value="Silver">Silver</option>
@@ -149,7 +150,7 @@ function JoinUs() {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="frequency">How often do you play LoL?</label>
+                <label htmlFor="frequency">{lan['joinUs.frequency']}</label>
                 <select
                   id="frequency"
                   name="frequency"
@@ -157,7 +158,7 @@ function JoinUs() {
                   onChange={handleChange}
                   required
                 >
-                  <option value="">Select frequency</option>
+                  <option value="">{lan['joinUs.selectFrequency']}</option>
                   <option value="Daily">Daily</option>
                   <option value="Several times a week">Several times a week</option>
                   <option value="Weekly">Weekly</option>
@@ -166,7 +167,7 @@ function JoinUs() {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="message">Why do you want to join us?</label>
+                <label htmlFor="message">{lan['joinUs.reason']}</label>
                 <textarea
                   id="message"
                   name="message"
@@ -175,34 +176,34 @@ function JoinUs() {
                   required
                 ></textarea>
               </div>
-              <button type="submit">Submit</button>
+              <button type="submit">{lan['joinUs.submit']}</button>
             </form>
           ) : (
             <div className="confirmation">
-              <h3>Confirm Your Information</h3>
-              <p><strong>Name:</strong> {formData.name}</p>
-              <p><strong>Email:</strong> {formData.email}</p>
-              <p><strong>Current Rank:</strong> {formData.rank}</p>
-              <p><strong>How often do you play LoL?:</strong> {formData.frequency}</p>
-              <p><strong>Why do you want to join us?:</strong> {formData.message}</p>
-              <button onClick={handleEdit}>Edit</button>
-              <button onClick={handleFinalSubmit}>Confirm and Submit</button>
+              <h3>{lan['joinUs.confirmInfo']}</h3>
+              <p><strong>{lan['joinUs.nameLabel']}</strong> {formData.name}</p>
+              <p><strong>{lan['joinUs.emailLabel']}</strong> {formData.email}</p>
+              <p><strong>{lan['joinUs.rankLabel']}</strong> {formData.rank}</p>
+              <p><strong>{lan['joinUs.frequencyLabel']}</strong> {formData.frequency}</p>
+              <p><strong>{lan['joinUs.reasonLabel']}</strong> {formData.message}</p>
+              <button onClick={handleEdit}>{lan['joinUs.edit']}</button>
+              <button onClick={handleFinalSubmit}>{lan['joinUs.finalSubmit']}</button>
             </div>
           )}
-          <button className="create-club-btn" onClick={startCreatingClub}>Create Your Own Club</button>
+          <button className="create-club-btn" onClick={startCreatingClub}>{lan['joinUs.createClub']}</button>
         </>
       ) : (
         <div className="create-club-form">
-          <h3>Create Your Own Club</h3>
+          <h3>{lan['joinUs.createClub']}</h3>
           <div className="progress-indicator">
-            <span className={currentStep >= 1 ? 'active' : ''}>Step 1</span>
-            <span className={currentStep >= 2 ? 'active' : ''}>Step 2</span>
-            <span className={currentStep >= 3 ? 'active' : ''}>Step 3</span>
+            <span className={currentStep >= 1 ? 'active' : ''}>{lan['joinUs.step']} 1</span>
+            <span className={currentStep >= 2 ? 'active' : ''}>{lan['joinUs.step']} 2</span>
+            <span className={currentStep >= 3 ? 'active' : ''}>{lan['joinUs.step']} 3</span>
           </div>
           <form onSubmit={handleClubSubmit}>
             {currentStep === 1 && (
               <div className="form-group">
-                <label htmlFor="clubName">Club Name:</label>
+                <label htmlFor="clubName">{lan['joinUs.clubName']}</label>
                 <input
                   type="text"
                   id="clubName"
@@ -216,7 +217,7 @@ function JoinUs() {
             {currentStep === 2 && (
               <>
                 <div className="form-group">
-                  <label>Roles Needed:</label>
+                  <label>{lan['joinUs.rolesNeeded']}</label>
                   <div className="roles-checkboxes">
                     {Object.keys(clubData.roles).map(role => (
                       <div key={role}>
@@ -234,7 +235,7 @@ function JoinUs() {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="clubFrequency">Frequency of Play:</label>
+                  <label htmlFor="clubFrequency">{lan['joinUs.frequencyOfPlay']}</label>
                   <select
                     id="clubFrequency"
                     name="clubFrequency"
@@ -242,7 +243,7 @@ function JoinUs() {
                     onChange={handleChange}
                     required
                   >
-                    <option value="">Select frequency</option>
+                    <option value="">{lan['joinUs.selectFrequency']}</option>
                     <option value="Daily">Daily</option>
                     <option value="Several times a week">Several times a week</option>
                     <option value="Weekly">Weekly</option>
@@ -255,7 +256,7 @@ function JoinUs() {
             {currentStep === 3 && (
               <>
                 <div className="form-group">
-                  <label htmlFor="rankRange.min">Minimum Rank:</label>
+                  <label htmlFor="rankRange.min">{lan['joinUs.minRank']}</label>
                   <select
                     id="rankRange.min"
                     name="rankRange.min"
@@ -263,7 +264,7 @@ function JoinUs() {
                     onChange={handleChange}
                     required
                   >
-                    <option value="">Select rank</option>
+                    <option value="">{lan['joinUs.selectRank']}</option>
                     <option value="Iron">Iron</option>
                     <option value="Bronze">Bronze</option>
                     <option value="Silver">Silver</option>
@@ -276,7 +277,7 @@ function JoinUs() {
                   </select>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="rankRange.max">Maximum Rank:</label>
+                  <label htmlFor="rankRange.max">{lan['joinUs.maxRank']}</label>
                   <select
                     id="rankRange.max"
                     name="rankRange.max"
@@ -284,7 +285,7 @@ function JoinUs() {
                     onChange={handleChange}
                     required
                   >
-                    <option value="">Select rank</option>
+                    <option value="">{lan['joinUs.selectRank']}</option>
                     <option value="Iron">Iron</option>
                     <option value="Bronze">Bronze</option>
                     <option value="Silver">Silver</option>
@@ -297,7 +298,7 @@ function JoinUs() {
                   </select>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="additionalInfo">Additional Information:</label>
+                  <label htmlFor="additionalInfo">{lan['joinUs.additionalInfo']}</label>
                   <textarea
                     id="additionalInfo"
                     name="additionalInfo"
@@ -308,8 +309,8 @@ function JoinUs() {
               </>
             )}
             <div className="form-buttons">
-              {currentStep > 1 && <button type="button" onClick={() => setCurrentStep(currentStep - 1)}>Back</button>}
-              <button type="submit">{currentStep === 3 ? 'Create Club' : 'Next'}</button>
+              {currentStep > 1 && <button type="button" onClick={() => setCurrentStep(currentStep - 1)}>{lan['joinUs.back']}</button>}
+              <button type="submit">{currentStep === 3 ? lan['joinUs.createClubBtn'] : lan['joinUs.next']}</button>
             </div>
           </form>
         </div>
