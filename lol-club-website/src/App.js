@@ -9,10 +9,12 @@ import Logo from './photos/logo.png';
 import translations from './language';
 import './App.css';
 import Button from './context/Button';
+import FAQModal from './components/FAQModal';
 
 function App() {
   const [showWelcome, setShowWelcome] = useState(true);
   const navigate = useNavigate();
+  const [showFAQ, setShowFAQ] = useState(false);
 
   const handleContinue = () => {
     setShowWelcome(false);
@@ -26,6 +28,14 @@ function App() {
   };
 
   const lan = translations[language];
+
+  const handleFAQOpen = () => {
+    setShowFAQ(true);
+  };
+
+  const handleFAQClose = () => {
+    setShowFAQ(false);
+  };
 
   return (
     <div className="App">
@@ -61,12 +71,14 @@ function App() {
             <Route path="/join" element={<JoinUs language={language} />} />
           </Routes>
           <footer>
-            <p>follow us: LoLProClub@instagram.com</p>
-            <p><a href="#privacy">Privacy Policy</a></p>
-          </footer>
-        </>
-      )}
-    </div>
+              <p>Follow us: LoLProClub@instagram.com</p>
+              <p><a href="#privacy">Privacy Policy</a></p>
+              <p><button onClick={handleFAQOpen} className="faq-link">FAQ</button></p>
+            </footer>
+          </>
+        )}
+        {showFAQ && <FAQModal onClose={handleFAQClose} language={language} />}
+      </div>
   );
 }
 
