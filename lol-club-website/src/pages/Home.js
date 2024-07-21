@@ -5,10 +5,9 @@ import clubImage from '../photos/club-image.png';
 import news1 from '../photos/news1.png'; 
 import news2 from '../photos/news2.png';
 import news3 from '../photos/news3.png';
-
 import translations from '../language';
 
-function Home({ language}) {
+function Home({ language }) {
   const navigate = useNavigate();
 
   const handleJoinUsClick = () => {
@@ -20,17 +19,17 @@ function Home({ language}) {
   };
 
   return (
-    <div>
+    <main>
       <section className="highlights">
         <div className="welcome">
           <div className="welcome-content">
             <div className="welcome-text">
-              <h3>{translations[language]['home.welcome']}</h3>
+              <h1>{translations[language]['home.welcome']}</h1>
               <p>{translations[language]['home.description']}</p>
               <button onClick={handleJoinUsClick}>{translations[language]['home.joinUsButton']}</button>
             </div>
             <div className="welcome-image">
-              <img src={clubImage} alt="Club" />
+              <img src={clubImage} alt="Club members in action" />
             </div>
           </div>
         </div>
@@ -38,30 +37,30 @@ function Home({ language}) {
       <section className="featured">
         <h2>{translations[language]['home.featuredNews']}</h2>
         <div className="news">
-          <div className="news-card" onClick={() => handleNewsClick('https://www.youtube.com/watch?v=xdfVomq3lAc')}>
-            <img src={news1} alt="News 1" />
+          <article className="news-card" onClick={() => handleNewsClick('https://www.youtube.com/watch?v=xdfVomq3lAc')}>
+            <img src={news1} alt="Faker Documentary" />
             <div className="news-card-content">
               <p className="news-card-category">Esports | Last Month</p>
               <h3>{translations[language]['home.fakerDoc']}</h3>
               <p>{translations[language]['home.fakerDocDesc']}</p>
             </div>
-          </div>
-          <div className="news-card" onClick={() => handleNewsClick('https://www.youtube.com/watch?v=6zOUaLKqwaA')}>
-            <img src={news2} alt="News 2" />
+          </article>
+          <article className="news-card" onClick={() => handleNewsClick('https://www.youtube.com/watch?v=6zOUaLKqwaA')}>
+            <img src={news2} alt="Dev Update" />
             <div className="news-card-content">
               <p className="news-card-category">Dev | Last Month</p>
               <h3>{translations[language]['home.devUpdate']}</h3>
               <p>{translations[language]['home.devUpdateDesc']}</p>
             </div>
-          </div>
-          <div className="news-card" onClick={() => handleNewsClick('https://www.youtube.com/watch?v=ErlPtDVj8EQ')}>
-            <img src={news3} alt="News 3" />
+          </article>
+          <article className="news-card" onClick={() => handleNewsClick('https://www.youtube.com/watch?v=ErlPtDVj8EQ')}>
+            <img src={news3} alt="Patch Notes" />
             <div className="news-card-content">
               <p className="news-card-category">{translations[language]['home.gameUpdates']}</p>
               <h3>{translations[language]['home.patchNotes']}</h3>
               <p>{translations[language]['home.patchNotesDesc']}</p>
             </div>
-          </div>
+          </article>
         </div>
       </section>
       <section className="community">
@@ -72,7 +71,7 @@ function Home({ language}) {
               width="560"
               height="315"
               src="https://www.youtube.com/embed/V0wQmBPB8dk"
-              title="YouTube video player"
+              title="Highlight Video 1"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -84,7 +83,7 @@ function Home({ language}) {
               width="560"
               height="315"
               src="https://www.youtube.com/embed/9YS9mgoKKXs"
-              title="YouTube video player"
+              title="Highlight Video 2"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -96,7 +95,7 @@ function Home({ language}) {
               width="560"
               height="315"
               src="https://www.youtube.com/embed/Dl7WBWAJGWg"
-              title="YouTube video player"
+              title="Highlight Video 3"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -105,7 +104,7 @@ function Home({ language}) {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
 
