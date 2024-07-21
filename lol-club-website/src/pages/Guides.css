@@ -4,6 +4,9 @@
   background-color: #f0f2f5;
   min-height: 100vh;
 }
+.guides-page h2{
+  color: black;
+}
 
 .filters {
   display: flex;

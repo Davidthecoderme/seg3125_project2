@@ -5,6 +5,10 @@
     text-align: center;
     background-color: azure;
   }
+
+  .champions-page h2{
+    color: #110808;
+  }
   
   .filters {
     display: flex;
