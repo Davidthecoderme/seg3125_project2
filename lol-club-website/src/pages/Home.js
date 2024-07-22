@@ -70,7 +70,7 @@ function Home({ language }) {
             <iframe
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/V0wQmBPB8dk"
+              src="https://www.youtube.com/embed/u1jPwLaBlxg"
               title="Highlight Video 1"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -27,9 +27,25 @@ function JoinUs({ language }) {
     additionalInfo: ''
   });
 
+  const [clubs, setClubs] = useState([
+    {
+      name: 'Team Alpha',
+      roles: ['ADC', 'Support'],
+      rank: 'Platinum II',
+      description: 'Looking for dedicated players to push ranks together.'
+    },
+    {
+      name: 'Team Bravo',
+      roles: ['Top', 'Jungle', 'Mid'],
+      rank: 'Gold III',
+      description: 'Casual team for weekly tournaments.'
+    }
+  ]);
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isCreatingClub, setIsCreatingClub] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
+  const [joinMessage, setJoinMessage] = useState('');
 
   useEffect(() => {
     if (isCreatingClub) {
@@ -96,6 +112,11 @@ function JoinUs({ language }) {
 
   const startCreatingClub = () => {
     setIsCreatingClub(true);
+  };
+
+  const handleJoinClick = (clubName) => {
+    //setJoinMessage(`Join succeeded for ${clubName}`);
+    alert(`Join succeeded for ${clubName}`);
   };
 
   return (
@@ -315,6 +336,19 @@ function JoinUs({ language }) {
           </form>
         </div>
       )}
+
+          <h3>{lan['joinUs.availableClubs']}</h3>
+          <div className="club-list">
+                  {clubs.map((club, index) => (
+                    <div key={index} className="club-card">
+                      <h4>{club.name}</h4>
+                      <p><strong>{lan['joinUs.rolesNeeded']}</strong> {club.roles.join(', ')}</p>
+                      <p><strong>{lan['joinUs.rank']}</strong> {club.rank}</p>
+                      <p><strong>{lan['joinUs.description']}</strong> {club.description}</p>
+                      <button onClick={() => handleJoinClick(club.name)} >{lan['joinUs.join']}</button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

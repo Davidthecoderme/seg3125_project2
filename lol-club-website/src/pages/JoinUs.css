@@ -1,118 +1,134 @@
+.join-us-page {
+  display: flex;
+  flex-direction: column;
+  background-image: url('https://www.cybersmile.org/wp-content/uploads/league-of-legends-school-club.jpg');
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-size: cover;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
 
-  
-  .join-us-page {
-    display: flex;
-    flex-direction: column;
-    background-image: url('https://www.cybersmile.org/wp-content/uploads/league-of-legends-school-club.jpg');
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-  }
-  .join-us-page h2{
-    color: white;
-  }
+.join-us-page h2,
+.join-us-page p {
+  color: white;
+}
 
-  .join-us-page p{
-    color: white;
-  }
-  
-  
-  .join-us-form,
-  .confirmation,
-  .create-club-form {
-    background-color: rgba(213, 238, 204, 0.9);
-    border-radius: 8px;
-    padding: 20px;
-    width: 100%;
-    max-width: 500px;
-    text-align: center;
-    color: rgb(46, 16, 146);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    margin-bottom: 20px;
-    color: white;
-  }
-  
- jop {
-    color: #b1dc84;
-  } 
-  .form-group {
-    margin-bottom: 15px;
-    text-align: left;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-  }
-  
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  .form-group textarea {
-    resize: vertical;
-    height: 80px;
-  }
-  
-  .submit-btn,
-  .form-navigation button {
-    background-color: #1e90ff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .submit-btn:hover,
-  .form-navigation button:hover {
-    background-color: #1c86ee;
-  }
-  
-  .form-navigation {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .progress-indicator {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .progress-indicator span {
-    background-color: #ddd;
-    color: #333;
-    padding: 10px 20px;
-    border-radius: 20px;
-    margin: 0 5px;
-  }
-  
-  .progress-indicator span.active {
-    background-color: #1e90ff;
-    color: white;
-  }
-  
-  .roles-checkboxes div {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-  }
-  
-  .roles-checkboxes div label {
-    margin-left: 10px;
-    color: #333;
-  }
-  
+.join-us-form,
+.confirmation,
+.create-club-form {
+  background-color: rgba(213, 238, 204, 0.9);
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  color: rgb(46, 16, 146);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: white;
+}
+
+.jop {
+  color: #b1dc84;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  resize: vertical;
+  height: 80px;
+}
+
+.submit-btn,
+.form-navigation button,
+.create-club-btn {
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-btn:hover,
+.form-navigation button:hover,
+.create-club-btn:hover {
+  background-color: #1c86ee;
+}
+
+.form-navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-indicator {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.progress-indicator span {
+  background-color: #ddd;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin: 0 5px;
+}
+
+.progress-indicator span.active {
+  background-color: #1e90ff;
+  color: white;
+}
+
+.roles-checkboxes div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.roles-checkboxes div label {
+  margin-left: 10px;
+  color: #333;
+}
+
+.club-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  color: antiquewhite;
+}
+
+.club-card {
+  background-color: rgba(53, 52, 52, 0.9);
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
